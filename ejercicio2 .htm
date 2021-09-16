@@ -1,5 +1,5 @@
 <body>
-  <canvas id="canvas">
+  <canvas id='canvas' width="1000" height="1000">
     <script>
       function deg2rad(g)
       {
@@ -11,7 +11,7 @@
         c.translate(x,y);
 
         c.rotate(deg2rad(a));
-        c.translate(-x -y);
+        c.translate(-x, -y);
       }
       function draw()
       {
