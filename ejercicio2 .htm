@@ -1,37 +1,41 @@
-<canvas id='canvas' width="800" height="800">
-<script>
-function deg2rad(g){
-  return (Math.pi/180)*g
-}
+<body>
+  <canvas id="canvas">
+    <script>
+      function deg2rad(g)
+      {
+        return(Math.PI/100)*g;
 
-function rotation(c,x,y,a){
-  c.traslate(x,y);
+      }
+      function rotation(c,x,y,a)
+      {
+        c.translate(x,y);
 
+        c.rotate(deg2rad(a));
+        c.translate(-x -y);
+      }
+      function draw()
+      {
+        var ctx = document.getElementById('canvas').getContext('2d');
 
-  c.rotate(deg2rad(a));
-  c.traslate(-x,-y);
-}
+        ctx.save();
 
-function draw(){
-  var ctx = document.getElementById('canvas').getContect('2d');
-  ctx.save();
+        ctx.fillStyle = '#0095DD';
+        ctx.fillRect(30, 30, 100, 100);
+        ctx.rotate(deg2rad(25));
 
-  ctx.fillStyle = '#0095DD';
-  ctx.fillRect(30,30,100,100);
-  ctx.restore();
+        ctx.fillStyle = '#4D4E53';
+        ctx.fillRect(30, 30, 100, 100);
+        ctx.restore();
 
-  ctx.fillStyle = '#4D4E53'
-  ctx.fillRect(30,30,100,100);
+        ctx.fillStyle = '#0095DD';
+        ctx.fillRect(150, 30, 100, 100);
 
-  ctx.fillStyle = '#0095DD';
-  ctx.fillRect(150,30,100,100);
+        rotation(ctx,250,80,45);
 
-  rotation(ctx, 250, 80, 45)
-
-  ctx.fillStyle = '#4D4E53';
-  ctx.fillRect(200,30,100,100);
-}
-
-
-draw();
-</script>
+        ctx.fillStyle = '#4D4E53';
+        ctx.fillRect(200,30,100,100);
+      }
+      draw()
+    </script>
+  </canvas>
+</body>
